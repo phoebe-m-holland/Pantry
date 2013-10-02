@@ -1,7 +1,3 @@
-* Make some abstractions:
-	* A recipe is a list of ingredients (for now)
-	* An ingredient is a string (for now)
-
 * Make a simple program:
 	* Store ingredients and recipes in persistent db backend
 		i.e. the library Persistent, part of Yesod
