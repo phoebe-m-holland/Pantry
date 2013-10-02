@@ -1,0 +1,48 @@
+* Make some abstractions:
+	* A recipe is a list of ingredients (for now)
+	* An ingredient is a string (for now)
+
+* Make a simple program:
+	* Store ingredients and recipes in persistent db backend
+		i.e. the library Persistent, part of Yesod
+		for strongly typed storage
+	* Command map (see LYAHFGG:I/O):
+		* add (ingredient)
+		* add-recipe (recipe)
+		* remove (ingredient)
+		* remove-recipe (recipe)
+		* poll (int):
+			* sort recipes by how many ingredients are missing,
+			ascending order.
+			* print n best recipes
+
+* Extend:
+	* A pantry holds some number of ingredients, along with quantity and date
+	* poll can filter/sort in many different (composable) ways:
+		* sort: ingredient freshness (use older ingredients first)
+		* sort: cost of missing ingredients
+		* filter: up to cost c
+		* filter: up to m missing ingredients
+		* filter: up to s in-class substitutions of degree d 
+			(see below: allow substitution of anything within
+				d degrees of the ingredient)
+		* filter: n recipes to approximate a nutritional target
+		* filter: includes ingredients [i]
+		* filter: recipe estimated time
+	* An ingredient also has/is:
+		* a timestamp (specify or automated)
+		* an amount, in grams
+		* a class, which is another ingredient
+			* e.g. Apple is a Fruit,
+			       Granny Smith Apple is an Apple.
+			* Construct an ingredient graph.
+				Distance on graph useful for substitution logic.
+		* a summable nutritional report
+		* an estimated cost (get from internet!)
+	* A recipe also has a series of steps, which each have
+		strings and estimated times.
+* Make a web frontend (e.g. Yesod)
+	* Make application of filters and sorting really obvious
+		* Sorting: Tabular data with headings as sort.
+		* Filters: something cool - maybe a prompt with completion?
+	* Make it easy to edit ingredient/nutritional data.
