@@ -7,12 +7,12 @@ module Pantry.Pantry
 import qualified Data.Set as Set
 import Pantry.Ingredient (Ingredient)
 
-data Pantry		= Larder	{ contents::Set.Set Ingredient
+data Pantry		= Pantry	{ contents::Set.Set Ingredient
 							} deriving (Show)
 
 addIngredient :: Pantry -> Ingredient -> Pantry
-addIngredient (Larder {contents=c}) i =
-	Larder $ Set.insert i $ c
+addIngredient (Pantry {contents=c}) i =
+	Pantry $ Set.insert i $ c
 
 --addIngredients p is :: Pantry -> [Ingredient] -> Pantry
 --addingredients p is = 

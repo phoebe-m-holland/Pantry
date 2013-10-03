@@ -1,6 +1,6 @@
 module Pantry.Cookbook
 (
-  Cookbook
+  Cookbook(..)
 ) where
 
 import Pantry.Recipe (Recipe)
