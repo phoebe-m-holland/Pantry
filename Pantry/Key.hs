@@ -2,9 +2,10 @@
 
 module Pantry.Key
 (
-	recipesInPantry,
-	filterWithEach,
-	missingFewerThan,
+	recipesInPantry
+	,filterWithEach
+	,missingElements
+	,missingFewerThan
 ) where
 
 import Pantry.Recipe

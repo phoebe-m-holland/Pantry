@@ -16,15 +16,18 @@ main = do
 										[("Guacamole",		 [
 											"Avocado",
 											"Garlic",
-											"Sour cream"	 ]	),
+											"Sour cream",
+											"Jalepeno"]	),
 										("Pasta with cheese",[
 											"Pasta",
 											"Cheese",
+											"Pepper",
 											"Garlic"		 ]	),
 										("Some third thing", [
 											"Blueberries",
 											"Sour cream",
-											"A live cat"	 ]	)	]
-	print p
-	print r
-	print $ map (missingFewerThan 2 p) r
+											"Miso",
+											"Live cat"	 ]	),
+										("Cheese meal!",	 [
+											"Cheese"		 ]  )]
+	mapM print (recipesInPantry [(\p i -> (missingElements p i) < 3)] missingElements p r)
